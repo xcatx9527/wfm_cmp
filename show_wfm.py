@@ -6,8 +6,8 @@ plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
 
 # 加载 .wfm 文件（替换为实际路径）
-file_path = r'0406-w_012.wfm'  # 您的 .wfm 文件路径
-# file_path = r'./n/cpu-e-50ms_001.wfm'  # 您的 .wfm 文件路径
+# file_path = r'0406-w_012.wfm'  # 您的 .wfm 文件路径
+file_path = r'./Tek000-cpuerr.wfm'  # 您的 .wfm 文件路径
 waveform = read_file(file_path)  # 返回 AnalogWaveform 对象
 
 # 提取原始数据
@@ -50,8 +50,8 @@ def plot_tek_waveform(time, data, waveform):
     ax.set_ylabel(f'幅度 ({waveform.y_axis_units})')
 
     # 固定精细刻度（只对当前ax生效，不会污染下一次）
-    ax.xaxis.set_major_locator(ticker.MultipleLocator(0.01))
-    ax.xaxis.set_minor_locator(ticker.MultipleLocator(0.001))
+    ax.xaxis.set_major_locator(ticker.MultipleLocator(0.2))
+    ax.xaxis.set_minor_locator(ticker.MultipleLocator(0.05))
     ax.yaxis.set_major_locator(ticker.MultipleLocator(0.2))
     ax.yaxis.set_minor_locator(ticker.MultipleLocator(0.05))
 
